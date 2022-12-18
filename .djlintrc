@@ -1,0 +1,5 @@
+{
+  "blank_line_after_tag": "load,extends,head, endblock, endmacro",
+  "max_line_length": "110",
+  "ignore": "H030,H020,H031"
+}

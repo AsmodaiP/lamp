@@ -1,6 +1,6 @@
 const lamp = document.getElementById("lamp");
 const form = document.getElementById("form");
-const ws = new WebSocket("ws://localhost:9999/ws?websocket=true");
+const ws = new WebSocket("ws://localhost:9999/ws_self?websocket=true");
 
 function numberToColor(number) {
   const hex = number.toString(16).padStart(6, "0");
