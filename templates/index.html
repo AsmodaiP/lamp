@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Lamp</title>
+        <link rel="stylesheet" href="../static/css/bulb.css"/>
+        <style>
+        .lamp {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid black;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="light">
+            <div class="wire"></div>
+            <div class="bulb">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <form id="form">
+            <label for="command">Command:</label>
+            <br/>
+            <select id="command" name="command">
+                <option value="ON">
+                    ON
+                </option>
+                <option value="OFF">
+                    OFF
+                </option>
+                <option value="SET_COLOR">
+                    SET_COLOR
+                </option>
+                <option value="UNDEFIEND">
+                    UNDEFIEND
+                </option>
+            </select>
+            <br/>
+            <label for="metadata">Metadata:</label>
+            <br/>
+            <input type="number" id="metadata" name="metadata" value="0"/>
+            <br/>
+            <br/>
+            <input type="submit" value="Submit"/>
+        </form>
+    </body>
+</html>
+<script src="../static/js/index.js"></script>
