@@ -13,4 +13,4 @@ class Commands(str, Enum):
 
     ON = 'ON'
     OFF = 'OFF'
-    SET_COLOR = 'SET_COLOR'
+    SET_COLOR = 'COLOR'

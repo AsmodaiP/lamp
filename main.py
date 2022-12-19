@@ -88,15 +88,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument('--port', required=False,
                         help='server port (1-65535)', default=DEFAULT_PORT, type=int)
 
-    mode_group = parser.add_mutually_exclusive_group()
-    mode_group.add_argument('--client', action='store_true', help='connect to the server to control the lamp')
-    mode_group.add_argument('--cli-server', action='store_true',
-                            help='start the server so you can send requests and see'
-                            'responses if you start the application in the client mode parallel')
-    mode_group.add_argument('--self-hosted', action='store_true',
-                            help='start the application to see the result at the root of the site')
-    parser.set_defaults(client=True)
-
+    parser.add_argument('--cli_server', required=False, default=False,
+                        help='Run server in CLI mode', action='store_true')
     return parser.parse_args()
 
 
@@ -124,10 +117,9 @@ def start_server() -> None:
     host: str = args.host
     port: int = args.port
     validate_port(port)
-    if args.client:
-        asyncio.get_event_loop().run_until_complete(accept_websocket(host, port))
-    elif args.cli_server:
+    if args.cli_server:
         uvicorn.run(app, host=host, port=port)
+    asyncio.get_event_loop().run_until_complete(accept_websocket(host, port))
     return None
 
 
